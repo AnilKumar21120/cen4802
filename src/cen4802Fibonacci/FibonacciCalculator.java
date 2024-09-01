@@ -1,20 +1,27 @@
 package cen4802Fibonacci;
 
+/**
+ * This class provides a method to calculate Fibonacci numbers.
+ */
 public class FibonacciCalculator {
 
-    // Recursive method to calculate the nth Fibonacci number
-    public static int fibonacci(int n) {
-        if (n <= 1) {
-            return n;
-        } else {
-            return fibonacci(n - 1) + fibonacci(n - 2);
+    /**
+     * Calculates the nth Fibonacci number using recursion.
+     *
+     * @param n The position in the Fibonacci sequence (0-based index).
+     * @return The Fibonacci number at the specified position.
+     * @throws IllegalArgumentException if the provided index is negative.
+     */
+    public static int calculateFibonacci(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("Index cannot be negative.");
         }
-    }
-
-    // Main method to test the fibonacci method
-    public static void main(String[] args) {
-        int n = 10;  // We want to find the 10th term in the Fibonacci sequence
-        int result = fibonacci(n);
-        System.out.println("The " + n + "th term of the Fibonacci sequence is " + result + ".");
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        return calculateFibonacci(n - 1) + calculateFibonacci(n - 2);
     }
 }
